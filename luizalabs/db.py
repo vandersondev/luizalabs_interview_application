@@ -5,15 +5,6 @@ uri = 'bolt://localhost:7687'
 driver = GraphDatabase.driver(uri, auth=('neo4j', 'root'))
 
 
-def test():
-    with driver.session() as session:
-        with session.begin_transaction() as t:
-            for record in t.run('MATCH (p:Person) RETURN p.name, ID(p) AS id'):
-                print(record['p.name'], record['id'])
-
-    return
-
-
 def getAllPersons():
 
     persons = []
