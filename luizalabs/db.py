@@ -50,12 +50,8 @@ def getAllSuggestions(name):
     with driver.session() as session:
         with session.begin_transaction() as t:
             for record in t.run('''
-                                    MATCH (p)-[:KNOWS*2..2]-(f)
-                                    WHERE toLower(p.name) = "{0}"
-                                    AND NOT (p)-[:KNOWS]-(f)
-                                    AND NOT toLower(f.name) = '{0}'
-                                    CREATE UNIQUE (p)-[:SUGGESTED]->(f)
-                                    CREATE UNIQUE (f)-[:SUGGESTED]->(p)
+                                    MATCH (p:Person)-[k:SUGGESTED]->(f:Person)
+                                    WHERE  toLower(p.name) = "{}"
                                     RETURN f.name, ID(f) AS id
                                     '''.format(name)):
 
@@ -64,15 +60,4 @@ def getAllSuggestions(name):
                                     'name': record['f.name']
                                     })
 
-    seen = set()
-    sanitize_suggestions = []
-
-    for d in suggestions:
-        t = tuple(d.items())
-        if t not in seen:
-            seen.add(t)
-            sanitize_suggestions.append(d)
-
-    print(sanitize_suggestions)
-
-    return sanitize_suggestions
+    return suggestions
