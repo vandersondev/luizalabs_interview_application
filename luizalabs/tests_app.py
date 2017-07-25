@@ -3,22 +3,34 @@
 
 import unittest
 import requests
-from app import app as my_app
+import json
 
 
-class TestIndexUsingRequests(unittest.TestCase):
-    def test_index(self):
-        response = requests.get('http://127.0.0.1:5000/')
+class TestAppUsingRequests(unittest.TestCase):
+
+    def setUp(self):
+        self.request = requests
+
+    def test_can_list_index(self):
+        response = self.request.get('http://127.0.0.1:5000/')
+        persons = json.loads(response.content.decode('utf-8'))
         self.assertEqual(response.headers['Content-Type'], 'application/json')
         self.assertEqual(response.status_code, 200)
+        self.assertEqual(persons[0]['name'], 'Arthur')
 
+    def test_can_list_friendship(self):
+        response = self.request.get('http://127.0.0.1:5000/friendship/arthur')
+        friends = json.loads(response.content.decode('utf-8'))
+        self.assertEqual(response.headers['Content-Type'], 'application/json')
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(friends[0]['name'], 'Eduardo')
 
-class TestApp(unittest.TestCase):
-
-    def test_index(self):
-        app = my_app.test_client()
-        response = app.get('/')
-        self.assertEqual(response.content_type, 'application/json')
+    def test_can_list_suggestions(self):
+        response = self.request.get('http://127.0.0.1:5000/suggestion/arthur')
+        friends = json.loads(response.content.decode('utf-8'))
+        self.assertEqual(response.headers['Content-Type'], 'application/json')
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(friends[0]['name'], 'Gabriel')
 
 
 if __name__ == '__main__':

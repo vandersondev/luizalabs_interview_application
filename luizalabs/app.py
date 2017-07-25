@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, jsonify
 from flask_restful import Api, Resource
 import logging
 from .db import getAllFriends, getAllPersons, getAllSuggestions
@@ -14,7 +14,7 @@ class Index(Resource):
         logging.info('Listando todos as Pessoas')
         persons = getAllPersons()
 
-        return persons
+        return jsonify(persons)
 
 
 class Friendship(Resource):
@@ -22,7 +22,7 @@ class Friendship(Resource):
         logging.info('Listando todos as amizades de {}'.format(name))
         friends = getAllFriends(name)
 
-        return friends
+        return jsonify(friends)
 
 
 class Suggestion(Resource):
@@ -31,7 +31,7 @@ class Suggestion(Resource):
         logging.info('Listando todas as recomendações de {}'.format(name))
         suggestions = getAllSuggestions(name)
 
-        return suggestions
+        return jsonify(suggestions)
 
 
 api.add_resource(Index, '/')
