@@ -22,8 +22,15 @@ pip install -r requirements.txt
 ```
 #### Crie a estrutura no Neo4j
 
+No diretório `/luizalabs_interview_application/luizalabs/`, altere o dicionário para as credenciais do seu usuário no banco de dados no arquivo `settings.py`:
 ```
-cd luizalabs
+DATABASES = {
+    'user': 'neo4j',
+    'passwd': 'root'
+}
+```
+
+```
 python load_data.py
 ```
 

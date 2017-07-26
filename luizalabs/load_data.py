@@ -2,10 +2,13 @@
 
 
 from neo4j.v1 import GraphDatabase
+from settings import DATABASES
 
+user = DATABASES['user']
+passwd = DATABASES['passwd']
 
 uri = 'bolt://localhost:7687'
-driver = GraphDatabase.driver(uri, auth=('neo4j', 'root'))
+driver = GraphDatabase.driver(uri, auth=(user, passwd))
 
 
 def load_data():
