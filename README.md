@@ -50,7 +50,7 @@ No diretório `/luizalabs_interview_application/luizalabs/`
 
 ```
 export FLASK_APP=app.py
-flaks run
+flask run
 ```
 ## Endpoints
 
