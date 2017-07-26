@@ -16,7 +16,6 @@ def getAllPersons():
         with session.begin_transaction() as t:
             for record in t.run('MATCH (p:Person) RETURN p.name, ID(p) AS id'):
                 persons.append({'id': record['id'], 'name': record['p.name']})
-
     return persons
 
 
@@ -33,7 +32,6 @@ def getAllFriends(name):
                                     '''.format(name)):
 
                 friends.append({'id': record['id'], 'name': record['f.name']})
-
     return friends
 
 
@@ -53,5 +51,4 @@ def getAllSuggestions(name):
                                     'id': record['id'],
                                     'name': record['f.name']
                                     })
-
     return suggestions

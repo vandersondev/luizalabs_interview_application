@@ -24,7 +24,6 @@ def makeSuggestions():
     with driver.session() as session:
         with session.begin_transaction() as t:
             t.run(query)
-
     return
 
 

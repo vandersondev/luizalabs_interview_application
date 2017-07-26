@@ -7,7 +7,7 @@ Instale o Neo4j: https://neo4j.com/download/community-edition/
 #### Crie um Virtualenv
 
 ```
-virtualenv -p python3 ENV
+virtualenv bobby
 source bin/activate
 ```
 #### Clone o projeto
@@ -57,17 +57,17 @@ flaks run
 Listar todos os amigos:
 
 ```
-http://127.0.0.1:5000/friendship/arthur
-http://127.0.0.1:5000/friendship/mari
-http://127.0.0.1:5000/friendship/eduardo
-http://127.0.0.1:5000/friendship/gabriel
+http://127.0.0.1:5000/friendship/<name>
+
+# por ex: http://127.0.0.1:5000/friendship/arthur
 ```
 
 Listar todas as sugestões de amigos:
 
 ```
-http://127.0.0.1:5000/suggestion/arthur
-http://127.0.0.1:5000/suggestion/gabriel
+http://127.0.0.1:5000/suggestion/<name>
+
+# por ex: http://127.0.0.1:5000/suggestion/gabriel
 ```
 
 ## Créditos

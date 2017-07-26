@@ -13,7 +13,6 @@ class Index(Resource):
     def get(self):
         logging.info('Listando todos as Pessoas')
         persons = getAllPersons()
-
         return jsonify(persons)
 
 
@@ -21,7 +20,6 @@ class Friendship(Resource):
     def get(self, name):
         logging.info('Listando todos as amizades de {}'.format(name))
         friends = getAllFriends(name)
-
         return jsonify(friends)
 
 
@@ -30,7 +28,6 @@ class Suggestion(Resource):
 
         logging.info('Listando todas as recomendações de {}'.format(name))
         suggestions = getAllSuggestions(name)
-
         return jsonify(suggestions)
 
 
