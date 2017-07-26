@@ -8,7 +8,7 @@ Instale o Neo4j: https://neo4j.com/download/community-edition/
 
 ```
 virtualenv bobby
-source bin/activate
+source bobby/bin/activate
 ```
 #### Clone o projeto
 
