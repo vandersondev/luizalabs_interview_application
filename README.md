@@ -41,3 +41,24 @@ No diretório `/luizalabs_interview_application/luizalabs/`
 export FLASK_APP=app.py
 flaks run
 ```
+## Endpoints
+
+Listar todos os amigos:
+
+```
+http://127.0.0.1:5000/friendship/arthur
+http://127.0.0.1:5000/friendship/mari
+http://127.0.0.1:5000/friendship/eduardo
+http://127.0.0.1:5000/friendship/gabriel
+```
+
+Listar todas as sugestões de amigos:
+
+```
+http://127.0.0.1:5000/suggestion/arthur
+http://127.0.0.1:5000/suggestion/gabriel
+```
+
+## Créditos
+
+Vanderson Gonçalves - vandersondev@gmail.com
