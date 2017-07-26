@@ -2,6 +2,8 @@
 
 ## Instalação
 
+Instale o Neo4j: https://neo4j.com/download/community-edition/
+
 #### Crie um Virtualenv
 
 ```
@@ -29,6 +31,8 @@ DATABASES = {
     'passwd': 'root'
 }
 ```
+
+Depois execute o script `load_data.py`:
 
 ```
 python load_data.py
