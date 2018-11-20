@@ -72,4 +72,4 @@ http://127.0.0.1:5000/suggestion/<name>
 
 ## Créditos
 
-Vanderson Gonçalves - vandersondev@gmail.com
+Vanderson Gonçalves
